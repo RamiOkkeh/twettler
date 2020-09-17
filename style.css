@@ -1,0 +1,37 @@
+body {
+	background: url('https://marketplace.canva.com/EAD2962NKnQ/2/0/800w/canva-rainbow-gradient-pink-and-purple-zoom-virtual-background-98aZLNQxJXg.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+}
+#header {
+	display:inline-block;
+	top: 10px;
+	text-align: center;
+	width: 90%;
+	height: 1%;
+	border: 5px pink solid;
+
+	margin: auto;
+	background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg');
+}
+#head {
+	font-size: 60px;
+	color: #ff3385;
+	text-shadow: 2px 2px #000000;
+	padding: 30px;
+}
+#msgs {
+	position: absolute;
+	top: 200px;
+	left: 900px;
+}
+.tweet {
+	font-size: 20px;
+	margin: 10px;
+	padding: 7px;
+	background-color: #e6f3ff;
+	border: 10px black solid;
+	border-image: url('https://blog.prezi.com/wp-content/uploads/2019/03/jason-leung-479251-unsplash.jpg') 10% round;
+	border-radius: 100px;
+}

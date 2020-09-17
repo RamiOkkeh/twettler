@@ -5,25 +5,25 @@ body {
 	background-attachment: fixed;
 }
 #header {
-	display:inline-block;
-	top: 10px;
-	text-align: center;
+	display:flex;
+	justify-content: center;
+	align-items: flex-start;
 	width: 90%;
 	height: 1%;
 	border: 5px pink solid;
-
 	margin: auto;
 	background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 400%
 }
 #head {
 	font-size: 60px;
 	color: #ff3385;
 	text-shadow: 2px 2px #000000;
-	padding: 30px;
 }
 #msgs {
 	position: absolute;
-	top: 200px;
+	top: 220px;
 	left: 900px;
 }
 .tweet {

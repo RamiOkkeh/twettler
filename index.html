@@ -6,8 +6,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
-    <div id="header">
-      <h1 id="head">Twittler</h1>
+    <div id="header" style="height: 20%">
+      <p id="head">Twittler</p>
     </div>
     <div id='msgs'>
       
@@ -35,7 +35,17 @@
         ms = (ms - s) / 60
         var min = ms % 60
         var hour = (ms - min) / 60
-        return hour + ':' + min + ':' + s 
+        if (hour > 0) {
+          if (hour === 1) {
+            return hour + " hour ago"
+          }
+          return hour + " hours ago"
+        } else if (min > 0) {
+          if (min === 1) {
+            return min + " min ago"
+          }
+          return min + " mins ago"
+        } else { return s + ' seconds ago' }
       }
 
 
@@ -46,7 +56,7 @@
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweet"></div>');
           var time = msToTime((new Date() - tweet.created_at))
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + time);
+          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' || ' + time);
           $('#msgs').append($tweet);
           index -= 1;
         }

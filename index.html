@@ -102,7 +102,7 @@
         ms = (ms - s) / 60
         var min = ms % 60
         ms = (ms - min) / 60
-        var hour = ms % 60
+        var hour = ms % 24
         if (hour > 0) {
           if (hour === 1) {
             return hour + " hour ago"

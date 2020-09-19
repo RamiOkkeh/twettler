@@ -32,6 +32,11 @@ body {
 	margin-right: 5%;
 	/*background-color: red;*/
 }
+.time {
+	display: inline;
+	color: grey;
+
+}
 .tweet {
 	font-size: 17px;
 	margin-top: 10px;
@@ -51,6 +56,7 @@ body {
 	/*justify-content: center;*/
 	width: 75px;
 	height: 40px;
+	margin-bottom: 50px;
 	background-color: #00ffff;
 	position: relative;
 	top: 20px;

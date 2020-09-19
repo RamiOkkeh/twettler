@@ -6,12 +6,33 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body>
+
     <div id="header" style="height: 20%">
       <p id="head">Twittler</p>
     </div>
+
+    <div id="make-left">
+
+    <div id="select-user">
+      
+    </div>
+
+    <div id="make-tweet">
+      
+      <h1 id="make-tweet-head">Tweet Something!</h1>
+      <input type="text" name="" id="text1" size="60" placeholder="example: nearly formulated a cat #omg" ><br>
+      <input type="button" name="" id="make-tweet-button" value="Tweet!" onclick="makeNewTweet()">
+    </div>
+    </div>
+
     <div id='msgs'>
       
     </div>
+
+    
+
+    
+
     <script>
 
       // $(document).ready(function(){
@@ -28,13 +49,60 @@
         // }
 
       // });
+      var stopper
+      var visitor = 'visitor'
+      streams.users.visitor = []
+
+      for (var user in streams.users) {
+        $('#select-user').append('<div class="users-inactive" onclick="changeUser(this)"> <p class="users-text">'+user.toString()+'</p> </div>')
+        var arr = $('div.users-inactive')
+        changeUser(arr[arr.length - 1])
+      }
+
+      function changeUser(that) {
+        var userr = that.firstElementChild.innerText
+        visitor = userr
+        $('#select-user div').removeClass('users-active')
+        $(that).addClass('users-active')
+      }
+
+      function makeNewTweet() {
+        var msg = $('#text1').val()
+        if (msg === '') {
+          alert("write something first!")
+        } else {
+        writeTweet(msg)
+        $('#text1').val('')
+        }
+      }
+
+      function showUserTweets(that) {
+        clearInterval(stopper)
+        $('#msgs div').remove();
+        var user = $(that)[0].innerHTML
+        // console.log($(that)[0].innerHTML)
+        var index = streams.users[user].length - 1
+        while(index >= 0) {
+          var tweet = streams.users[user][index]
+          var $tweet = $('<div class="tweet"></div>');
+          var time = msToTime((new Date() - tweet.created_at))
+          var userr = tweet.user
+          $tweet.html('@<p class="user" onclick="showUserTweets(this)">' + user + '</p>: ' + tweet.message + ' || ' + time);
+          $('#msgs').append($tweet);
+          index--
+        }
+        $('#msgs').append("<input type='button' id='back-button' value='Back' onclick='start()'>")
+      }
+
+
       function msToTime(ms) {
         var ml = ms % 1000
         ms = (ms - ml) / 1000
         var s = ms % 60
         ms = (ms - s) / 60
         var min = ms % 60
-        var hour = (ms - min) / 60
+        ms = (ms - min) / 60
+        var hour = ms % 60
         if (hour > 0) {
           if (hour === 1) {
             return hour + " hour ago"
@@ -45,26 +113,35 @@
             return min + " min ago"
           }
           return min + " mins ago"
-        } else { return s + ' seconds ago' }
+        } else if (s === 1) { 
+          return s + ' second ago' 
+        } return s + ' seconds ago'
       }
 
 
       function update() {
       var index = streams.home.length - 1;
         $('#msgs div').remove();
+        $('#back-button').remove();
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div class="tweet"></div>');
           var time = msToTime((new Date() - tweet.created_at))
-          $tweet.text('@' + tweet.user + ': ' + tweet.message + ' || ' + time);
+          var user = tweet.user
+          $tweet.html('@<p class="user" onclick="showUserTweets(this)">' + user + '</p>: ' + tweet.message + ' || ' + time);
           $('#msgs').append($tweet);
           index -= 1;
         }
       }
       update()
-      setInterval(function() {
+
+      function start() {
+        update()
+        stopper = setInterval(function() {
           update()
       }, 5000)
+      }
+      start()
       
     </script>
   </body>

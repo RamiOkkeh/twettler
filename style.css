@@ -4,12 +4,16 @@ body {
 	background-size: 100% 100%;
 	background-attachment: fixed;
 }
+* {
+  box-sizing: border-box;
+}
 #header {
 	display:flex;
 	justify-content: center;
 	align-items: flex-start;
+	text-align: center;
 	width: 90%;
-	height: 1%;
+	/*height: 1%;*/
 	border: 5px pink solid;
 	margin: auto;
 	background-image: url('https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-03.jpg');
@@ -17,21 +21,133 @@ body {
 	background-size: 100% 400%
 }
 #head {
-	font-size: 60px;
+	font-size: 50px;
 	color: #ff3385;
 	text-shadow: 2px 2px #000000;
 }
 #msgs {
-	position: absolute;
-	top: 220px;
-	left: 900px;
+	/*display: flex;*/
+	/*flex-flow: column;*/
+	float: right;
+	margin-right: 5%;
+	/*background-color: red;*/
 }
 .tweet {
-	font-size: 20px;
-	margin: 10px;
+	font-size: 17px;
+	margin-top: 10px;
 	padding: 7px;
 	background-color: #e6f3ff;
 	border: 10px black solid;
 	border-image: url('https://blog.prezi.com/wp-content/uploads/2019/03/jason-leung-479251-unsplash.jpg') 10% round;
-	border-radius: 100px;
+}
+.user {
+	display: inline;
+	color: blue;
+	cursor: pointer;
+}
+#back-button {
+	/*position: relative;*/
+	/*display: flex;*/
+	/*justify-content: center;*/
+	width: 75px;
+	height: 40px;
+	background-color: #00ffff;
+	position: relative;
+	top: 20px;
+	left: 45%;
+	border: 1px grey solid;
+	color: white;
+	text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px;
+	font-size: 20px;
+}
+#make-left {
+	display: flex;
+	flex-flow: column;
+	float: left;
+	margin-left: 5%;
+	/*background-color: blue;*/
+}
+#select-user {
+	margin-top: 20px;
+	margin-left: 5%;
+	float: left;
+}
+.users-inactive {
+	float: left;
+	margin: 10px;
+	width: 5vw;
+	height: 5vw;
+	text-align: center;
+	border-radius: 50px;
+	background-repeat: none;
+	background-image: url('https://www.pngitem.com/pimgs/m/4-40070_user-staff-man-profile-user-account-icon-jpg.png');
+	background-size: 100% 104%;
+	background-position: 0% 30%;
+}
+.users-active {
+	/*outline: 4px #ff0066 solid;
+	outline-radius*/
+	box-shadow: 0 0 5pt 2pt #ff0066;
+}
+.users-text {
+	position: relative;
+	text-align: center;
+	bottom: -70px;
+	color: #cc0044;
+	font-size: 12px;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+#make-tweet {
+	float: left;
+	padding-left: 5%;
+	padding-top: 10%;
+}
+#make-tweet-head {
+	display: flex;
+	justify-content: center;
+	color: #00ffff;
+	text-shadow: #000 0px 0px 5px;
+}
+#text1 {
+
+	border: none;
+    background-color: #ffccff;
+    resize: none;
+	outline: none;
+	color: #ff3385;
+	border: 1px grey solid;
+	font-size: 17px;
+	text-shadow: #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px, #000 0px 0px 1px;
+	margin: 0px;
+	height: 30px;
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
+}
+#text1:focus {
+	border: 1px black solid;
+}
+#text1::placeholder {
+	color: 	rgb(255, 255, 255, 0.8);
+	text-align: center;
+	text-shadow: none;
+}
+#make-tweet-button {
+	background-color: #00ffff;
+	position: relative;
+	top: 20px;
+	left: 45%;
+	width: 100px;
+	height: 40px;
+	border: 1px grey solid;
+	color: white;
+	text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px;
+	font-size: 20px;
+
+}
+#make-tweet-button:focus {
+	outline: none;
+}
+#make-tweet-button:active {
+	border: 1px black solid;
 }

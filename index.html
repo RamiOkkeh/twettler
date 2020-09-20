@@ -87,7 +87,7 @@
           var $tweet = $('<div class="tweet"></div>');
           var time = msToTime((new Date() - tweet.created_at))
           var userr = tweet.user
-          $tweet.html('@<p class="user" onclick="showUserTweets(this)">' + user + '</p>: ' + tweet.message + ' || <p class="time">' + time + '</p>');
+          $tweet.html('@<p class="user">' + user + '</p>: ' + tweet.message + ' || <p class="time">' + time + '</p>');
           $('#msgs').append($tweet);
           index--
         }
